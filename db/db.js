@@ -48,6 +48,12 @@ const deleteData = async (id) =>
     [id]
   )
 
+const getUsersRecords = async () => {
+  const res = await query('CALL users_records')
+  console.log(res)
+  return res[0]
+}
+
 export {
   updateData,
   deleteData,
@@ -55,7 +61,8 @@ export {
   findUser,
   getAllData,
   getDataById,
-  logonUsers
+  logonUsers,
+  getUsersRecords
 }
 
 /*

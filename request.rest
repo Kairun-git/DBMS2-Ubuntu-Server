@@ -12,6 +12,9 @@ Content-Type: application/json
 GET http://localhost:3000/data
 Authorization: Bearer {{login.response.body.access_token}}
 
+###
+GET http://localhost:3000/data/users_records
+Authorization: Bearer {{login.response.body.access_token}}
 
 ###
 GET http://localhost:3000/data/1
