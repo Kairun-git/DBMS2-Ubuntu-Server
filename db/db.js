@@ -24,11 +24,17 @@ const execute = async (sql, params = []) => {
 const findUser = async ( username ) => 
   query('SELECT * FROM users WHERE username = ?', [username])
 
-const getAllData = async () => 
+const getAllData = async () =>  
   query('SELECT * FROM data')
 
 const getDataById = async ( id ) => 
   query('SELECT * FROM data WHERE id = ?', [id])
+
+const addDataProc = async (Firstname, Surname) =>
+  pool.query(
+    'CALL addData(?, ?)',
+    [Firstname, Surname]
+  )
 
 const addData = async ( {id, Firstname, Surname, userid} ) =>
   execute(
@@ -55,6 +61,7 @@ const getUsersRecords = async () => {
 }
 
 export {
+  addDataProc,
   updateData,
   deleteData,
   addData,

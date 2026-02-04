@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import {getAllData, getDataById, addData, updateData, deleteData, getUsersRecords} from '../db/db.js';
+import {getAllData, getDataById, addData, updateData, deleteData, getUsersRecords, addDataProc} from '../db/db.js';
 let router = Router()
 
 router.get('/', async (req, res) => {
@@ -13,6 +13,27 @@ router.get('/users_records', async (req, res) => {
 router.get('/:id', async (req, res) => {
     res.json( await getDataById(req.params.id) )
 })
+
+router.post('/procedure', async (req, res) => {
+  const { Firstname, Surname } = req.body
+
+  if (!Firstname || !Surname) {
+    return res.status(400).json({ error: 'Missing data' })
+  }
+
+  try {
+    await addDataProc(Firstname, Surname)
+    res.status(201).json({
+      message: 'procedure called'
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({
+      error: 'procedure error'
+    })
+  }
+})
+
 
 router.post('/', async (req, res) => {
     let [exist] = await getDataById(req.body.id)

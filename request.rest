@@ -21,6 +21,17 @@ GET http://localhost:3000/data/1
 Authorization: Bearer {{login.response.body.access_token}}
 
 ###
+POST http://localhost:3000/data/procedure
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.access_token}}
+
+{
+  "Firstname": "Donald",
+  "Surname": "Duck"
+}
+
+
+###
 POST http://localhost:3000/data
 Content-Type: application/json
 Authorization: Bearer {{login.response.body.access_token}}
