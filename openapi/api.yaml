@@ -20,7 +20,7 @@ security:
   - bearerAuth: []
 
 servers:
-  - url: https://kairunu2404521.westeurope.cloudapp.azure.com/doc/
+  - url: http://kairunu2404521.westeurope.cloudapp.azure.com/doc/
   
 tags:
   - name: Sample dataset
