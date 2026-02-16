@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
-import {logonUsers, findUser} from '../db/db.js'
+import {logonUsers, findUser} from '../db/mongodb.js'
 
 let router = Router()
 const secret = process.env.MY_SECRET_KEY;

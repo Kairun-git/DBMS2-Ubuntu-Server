@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import {getAllData, getDataById, addData, updateData, deleteData, getUsersRecords, addDataProc} from '../db/db.js';
+import {getAllData, getDataById, addData, updateData, deleteData, getUsersRecords, addDataProc} from '../db/mongodb.js';
 let router = Router()
 
 router.get('/', async (req, res) => {
